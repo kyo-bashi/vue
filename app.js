@@ -19,7 +19,7 @@ const app = Vue.createApp({
 			// this.title = 'Words of Randiance'
 			this.title = title
 		},
-    toggleshowBooks(){
+		toggleshowBooks(){
 			this.showBooks = !this.showBooks
 		},
 		handleEvent(e,data){
@@ -31,6 +31,14 @@ const app = Vue.createApp({
 		handleMousemove(e){
 			this.x = e.offsetX;
 			this.y = e.offsetY;
+		},
+		toggleFav(book){//動画だと関数を使用した
+			book.isFav = !book.isFav
+		}
+	},
+	computed:{
+		filteredBooks(){
+			return this.books.filter((book) => book.isFav)
 		}
 	}
 })
